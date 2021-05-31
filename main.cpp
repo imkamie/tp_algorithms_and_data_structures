@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "ListGraph.h"
+#include "MatrixGraph.h"
 
 template<typename Callback>
 void dfs_aux(const IGraph &graph, std::vector<bool> &visited, int v, Callback callback) {
@@ -25,25 +26,56 @@ void dfs(const IGraph &graph, Callback callback) {
 }
 
 int main() {
-    ListGraph graph(7);
+    ListGraph graph(8);
     graph.AddEdge(0, 1);
     graph.AddEdge(0, 4);
     graph.AddEdge(1, 2);
     graph.AddEdge(1, 3);
     graph.AddEdge(4, 5);
     graph.AddEdge(4, 6);
+    graph.AddEdge(2, 7);
+    graph.AddEdge(3, 7);
 
-    ListGraph anotherGraph(graph);
-
+//
+//
+//    ListGraph anotherGraph(graph);
+//
     dfs(graph, [](int v) {
         std::cout << v << " ";
     });
 
     std::cout << std::endl;
+//
+//    dfs(anotherGraph, [](int v) {
+//      std::cout << v << " ";
+//    });
+//
+//    std::cout << std::endl;
+//
+//    std::vector<int> a = graph.GetPrevVertices(7);
+//    for (int i : a) {
+//        std::cout << i << " ";
+//    }
 
-    dfs(anotherGraph, [](int v) {
+    MatrixGraph igraph(graph);
+//    igraph.AddEdge(0, 1);
+//    igraph.AddEdge(0, 4);
+//    igraph.AddEdge(1, 2);
+//    igraph.AddEdge(1, 3);
+//    igraph.AddEdge(4, 5);
+//    igraph.AddEdge(4, 6);
+
+    dfs(igraph, [](int v) {
       std::cout << v << " ";
     });
+
+//    std::cout << std::endl;
+//
+//    std::vector<int> a = graph.GetNextVertices(1);
+//    for (int i : a) {
+//        std::cout << i << " ";
+//    }
+
 
     return 0;
 }

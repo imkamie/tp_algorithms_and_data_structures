@@ -5,7 +5,7 @@
 class MatrixGraph : public IGraph {
  public:
     explicit MatrixGraph(int verticesCount);
-    explicit MatrixGraph(const IGraph& graph);
+    explicit MatrixGraph(const IGraph &igraph);
 
     ~MatrixGraph() override = default;
 
@@ -18,5 +18,6 @@ class MatrixGraph : public IGraph {
     std::vector<int> GetPrevVertices(int vertex) const override;
 
  private:
-
+    std::vector<std::vector<bool>> graph;
+    int verticesCount;
 };
