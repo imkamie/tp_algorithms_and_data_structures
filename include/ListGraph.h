@@ -14,7 +14,6 @@ class ListGraph : public IGraph {
     int VerticesCount() const override;
 
     std::vector<int> GetNextVertices(int vertex) const override;
-
     std::vector<int> GetPrevVertices(int vertex) const override;
 
  private:

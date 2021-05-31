@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "SetGraph.h"
 
 SetGraph::SetGraph(int _verticesCount) : verticesCount(_verticesCount) {
@@ -7,6 +9,7 @@ SetGraph::SetGraph(int _verticesCount) : verticesCount(_verticesCount) {
 SetGraph::SetGraph(const IGraph &igraph) {
     verticesCount = igraph.VerticesCount();
     graph.resize(verticesCount);
+
     for (int from = 0; from < igraph.VerticesCount(); ++from) {
         std::vector<int> nextVertice = igraph.GetNextVertices(from);
         for (auto &to : nextVertice) {

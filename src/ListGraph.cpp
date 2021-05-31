@@ -9,6 +9,7 @@ ListGraph::ListGraph(int _verticesCount) : verticesCount(_verticesCount) {
 ListGraph::ListGraph(const IGraph &igraph) {
     verticesCount = igraph.VerticesCount();
     graph.resize(verticesCount);
+
     for (int from = 0; from < igraph.VerticesCount(); ++from) {
         std::vector<int> nextVertice = igraph.GetNextVertices(from);
         for (auto &to : nextVertice) {

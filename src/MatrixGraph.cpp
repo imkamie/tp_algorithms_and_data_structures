@@ -9,8 +9,8 @@ MatrixGraph::MatrixGraph(int _verticesCount) : verticesCount(_verticesCount) {
 
 MatrixGraph::MatrixGraph(const IGraph &igraph) {
     verticesCount = igraph.VerticesCount();
-
     graph.resize(verticesCount);
+
     for (int i = 0; i < verticesCount; i++) {
         graph[i].resize(verticesCount, false);
     }
