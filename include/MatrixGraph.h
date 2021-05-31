@@ -4,7 +4,7 @@
 
 class MatrixGraph : public IGraph {
  public:
-    explicit MatrixGraph(int verticesCount);
+    explicit MatrixGraph(int _verticesCount);
     explicit MatrixGraph(const IGraph &igraph);
 
     ~MatrixGraph() override = default;
