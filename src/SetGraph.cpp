@@ -10,9 +10,9 @@ SetGraph::SetGraph(const IGraph &igraph) {
     verticesCount = igraph.VerticesCount();
     graph.resize(verticesCount);
 
-    for (int from = 0; from < igraph.VerticesCount(); ++from) {
-        std::vector<int> nextVertice = igraph.GetNextVertices(from);
-        for (auto &to : nextVertice) {
+    for (int from = 0; from < verticesCount; ++from) {
+        std::vector<int> nextVertex = igraph.GetNextVertices(from);
+        for (auto &to : nextVertex) {
             graph[from].insert(to);
         }
     }

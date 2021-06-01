@@ -10,9 +10,9 @@ ListGraph::ListGraph(const IGraph &igraph) {
     verticesCount = igraph.VerticesCount();
     graph.resize(verticesCount);
 
-    for (int from = 0; from < igraph.VerticesCount(); ++from) {
-        std::vector<int> nextVertice = igraph.GetNextVertices(from);
-        for (auto &to : nextVertice) {
+    for (int from = 0; from < verticesCount; ++from) {
+        std::vector<int> nextVertex = igraph.GetNextVertices(from);
+        for (auto &to : nextVertex) {
             graph[from].push_back(to);
         }
     }
@@ -37,7 +37,7 @@ std::vector<int> ListGraph::GetPrevVertices(int vertex) const {
     std::vector<int> result;
 
     for (int parent = 0; parent < graph.size(); ++parent) {
-        for (int child : graph[parent]) {
+        for (auto &child : graph[parent]) {
             if (child == vertex) {
                 result.push_back(parent);
             }
