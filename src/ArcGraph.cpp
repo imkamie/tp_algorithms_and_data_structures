@@ -6,7 +6,6 @@ ArcGraph::ArcGraph(int _verticesCount) : verticesCount(_verticesCount) {
 
 ArcGraph::ArcGraph(const IGraph &igraph) {
     verticesCount = igraph.VerticesCount();
-    graph.resize(verticesCount);
 
     for (int from = 0; from < igraph.VerticesCount(); ++from) {
         for (auto &to : igraph.GetNextVertices(from)) {
