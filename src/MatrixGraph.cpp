@@ -42,6 +42,7 @@ std::vector<int> MatrixGraph::GetNextVertices(int vertex) const {
 
     return result;
 }
+
 std::vector<int> MatrixGraph::GetPrevVertices(int vertex) const {
     std::vector<int> result;
 
